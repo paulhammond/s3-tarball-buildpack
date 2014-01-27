@@ -5,7 +5,7 @@ that can download tarballs from private [Amazon S3](http://aws.amazon.com/s3/)
 buckets. It gives you a way of deploying pre-built code to
 [Heroku](http://www.heroku.com/) without making it publicly accessible.
 
-# Usage
+## Usage
 
     $ heroku config:add BUILDPACK_URL=https://github.com/paulhammond/s3-tarball-buildpack.git
 
@@ -32,10 +32,12 @@ using [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi
     https://github.com/paulhammond/s3-tarball-buildpack.git
     https://github.com/ryandotsmith/null-buildpack.git
 
-# See also
+## See also
 
   * [heroku-buildpack-vendorbinaries](https://github.com/peterkeen/heroku-buildpack-vendorbinaries)
+  * [s3simple](https://github.com/paulhammond/s3simple)
+  * [Heroku Slug API](https://blog.heroku.com/archives/2013/12/20/programmatically_release_code_to_heroku_using_the_platform_api)
 
-# Licence
+## Licence
 
 MIT license, see LICENSE.txt for details.
