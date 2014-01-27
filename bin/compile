@@ -1,5 +1,6 @@
 #!/bin/bash
 # bin/compile <build-dir> <cache-dir>
+# See https://github.com/paulhammond/s3-tarball-buildpack for license and docs
 
 working=$(pwd)
 mkdir -p "$2"

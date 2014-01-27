@@ -1,4 +1,5 @@
 #!/bin/sh
 # bin/release <build-dir>
+# See https://github.com/paulhammond/s3-tarball-buildpack for license and docs
 
 echo "--- {}"
