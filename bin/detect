@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+if [ -f $1/.buildpack-s3-tarballs ]; then
+    echo "S3Tarball"
+    exit 0
+else
+    exit 1
+fi

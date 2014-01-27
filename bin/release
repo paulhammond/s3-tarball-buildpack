@@ -1,0 +1,4 @@
+#!/bin/sh
+# bin/release <build-dir>
+
+echo "--- {}"
