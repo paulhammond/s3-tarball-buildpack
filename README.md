@@ -18,13 +18,11 @@ buckets. It gives you a way of deploying pre-built code to
 You probably want to use an [IAM key](http://aws.amazon.com/iam/) with limited
 access. This code only requires `s3:GetObject` access to files.
 
-If you don't want to check your IAM keys into revision control, you can use
-the [Heroku Labs user-env-compile feature](https://devcenter.heroku.com/articles/labs-user-env-compile)
-to store the keys in Heroku's config system. Note that this is a beta feature
-and Heroku may remove it at any time:
+If you don't want to check your IAM keys into revision control, you can store
+them in Heroku's config system. Keys specified in the .buildpack-s3-tarballs
+file have precedence over keys in the config system.
 
     $ heroku config:add BUILDPACK_URL=https://github.com/paulhammond/s3-tarball-buildpack.git
-    $ heroku labs:enable user-env-compile
     $ heroku config:add AWS_ACCESS_KEY_ID=AKIA0000000000000000
     $ heroku config:add AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

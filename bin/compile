@@ -1,11 +1,12 @@
 #!/bin/bash
-# bin/compile <build-dir> <cache-dir>
+# bin/compile <build-dir> <cache-dir> <env-dir>
 # See https://github.com/paulhammond/s3-tarball-buildpack for license and docs
 
 working=$(pwd)
 mkdir -p "$2"
 build=$(cd "$1/" && pwd)
 cache=$(cd "$2/" && pwd)
+env=$(cd "$3/" && pwd)
 
 # s3simple is a small, simple bash s3 client with minimal dependencies.
 # See http://github.com/paulhammond/s3simple for documentation and licence.
@@ -61,6 +62,12 @@ s3simple() {
 }
 
 cd $build
+
+for e in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY; do
+  if [ -f $env/$e ]; then
+    export "$e=$(cat $env/$e)"
+  fi
+done
 
 while read line; do
 	case "$line" in
