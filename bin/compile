@@ -63,7 +63,7 @@ s3simple() {
 
 cd $build
 
-for e in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY; do
+for e in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY S3_BUILDPACK_TARBALL; do
   if [ -f $env/$e ]; then
     export "$e=$(cat $env/$e)"
   fi
@@ -83,3 +83,8 @@ while read line; do
 			;;
 	esac
 done < .buildpack-s3-tarballs
+
+if [ -n "${S3_BUILDPACK_TARBALL}" ]; then
+    echo "-----> s3tarballing ${S3_BUILDPACK_TARBALL}"
+    s3simple get "$S3_BUILDPACK_TARBALL" | tar -zx
+fi
